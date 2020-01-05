@@ -29,9 +29,12 @@ class NWEmployees(MSDBConnection):
             print(f"ID: {row.EmployeeID} // {row.TitleOfCourtesy} {row.FirstName} {row.LastName} - {row.Title} // Address: {row.Address} {row.PostalCode}, {row.City} // Phone: {row.HomePhone} // DOB: {row.BirthDate}")
 
      # create an employee
+    def create_employee(self, first_name, last_name):
+        query = f"INSERT INTO Employees (FirstName, LastName) VALUES ('{first_name}', '{last_name}')"
+        data_to_insert = self.__sql_query(query)
+        self.docker_Northwind.commit()
+        return data_to_insert
 
-    # def __sql_insert(self, insert):
-    #     return self.cursor.execute(insert).commit
 
 # Add all this funtionality to our run products while loop
 

@@ -13,6 +13,7 @@ while True:
     print('Choose 6 to get all employee data')
     print('Choose 7 to get an employee from their employee ID')
     print('Choose 8 to get an employee from their last name')
+    print('Choose 9 to create an employee')
     print("-----------------------------")
     ui = input("Choose an appropriate number: ").strip()
 
@@ -58,6 +59,13 @@ while True:
     elif ui == '8':
         emp_name = input("What is the employee's last name? ")
         employees_table.search_emp_by_name(emp_name)
+
+    # create an employee
+    elif ui == '9':
+        print('Creating an employee')
+        first_name = input("What is the employee's first name ")
+        last_name = input("What is the employee's last name ")
+        employees_table.create_employee(first_name, last_name)
 
     elif "bye" in ui or "exit" in ui:
         print("Goodbye! Thank you")
